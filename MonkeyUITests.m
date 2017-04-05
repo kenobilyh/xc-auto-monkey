@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "XCTRunnerDaemonSession.h"
+#import <objc/runtime.h>
 
 #pragma mark - Configuration
 
@@ -92,7 +94,16 @@ static NSUInteger events[] = {XCMonkeyEventTypeTap, XCMonkeyEventTypePan};
     self.app = [[XCUIApplication alloc] init];
     [self.app launch];
     
-    self.proxy = [XCTestDriver sharedTestDriver].managerProxy;
+    // ref: https://github.com/facebook/WebDriverAgent/commit/6a8281374f5976517bde5f54fb5291c231d7e452
+//    self.proxy = [XCTestDriver sharedTestDriver].managerProxy;
+    id<XCTestManager_ManagerInterface> proxy = nil;
+    if ([[XCTestDriver sharedTestDriver] respondsToSelector:@selector(managerProxy)]) {
+        proxy = [XCTestDriver sharedTestDriver].managerProxy;
+        return;
+    }
+    Class runnerClass = objc_lookUpClass("XCTRunnerDaemonSession");
+    proxy = ((XCTRunnerDaemonSession *)[runnerClass sharedSession]).daemonProxy;
+    self.proxy = proxy;
     
     self.windowFrame = [self.app.windows elementBoundByIndex:0].frame;
     [self seedEventWeights];
