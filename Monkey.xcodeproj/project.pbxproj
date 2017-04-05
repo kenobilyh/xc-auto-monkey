@@ -27,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		009E747A1E9500FA00E3A8A5 /* CDStructures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
+		009E747B1E9500FA00E3A8A5 /* XCTestManager_TestsInterface-Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestManager_TestsInterface-Protocol.h"; sourceTree = "<group>"; };
+		009E747C1E9500FA00E3A8A5 /* XCTRunnerDaemonSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCTRunnerDaemonSession.h; sourceTree = "<group>"; };
 		21229EB71DA08ABA0028CA2C /* Monkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21229EBB1DA08ABA0028CA2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21229EBD1DA08ABA0028CA2C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +63,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009E74791E9500FA00E3A8A5 /* PrivateHeader */ = {
+			isa = PBXGroup;
+			children = (
+				009E747A1E9500FA00E3A8A5 /* CDStructures.h */,
+				009E747B1E9500FA00E3A8A5 /* XCTestManager_TestsInterface-Protocol.h */,
+				009E747C1E9500FA00E3A8A5 /* XCTRunnerDaemonSession.h */,
+			);
+			path = PrivateHeader;
+			sourceTree = "<group>";
+		};
 		21229EAE1DA08ABA0028CA2C = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +118,7 @@
 		21229EDE1DA08ABA0028CA2C /* MonkeyUITests */ = {
 			isa = PBXGroup;
 			children = (
+				009E74791E9500FA00E3A8A5 /* PrivateHeader */,
 				34BC08651DA589BC00F83B56 /* MonkeyUITests.m */,
 				21229EE11DA08ABA0028CA2C /* Info.plist */,
 			);
